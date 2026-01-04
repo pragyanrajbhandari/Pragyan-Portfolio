@@ -1,25 +1,477 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRB</title>
-    <link rel="stylesheet" href="styple.css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Pragyan Rajbhandari - Portfolio</title>
+    <meta name="description" content="Portfolio of Pragyan Rajbhandari - Web Developer">
+    <!-- FAVICON (SVG Version) -->
+    <link rel="shortcut icon" href="images/logo.svg" sizes="32x32" sizes="16x16">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet"/>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: "class", 
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6", 
+                        cyan: "#00FFD9",
+                        "background-dark": "#0B1120", 
+                        "surface-dark": "#162032",
+                    }, 
+                    fontFamily: {
+                        sans: ["Poppins", "sans-serif"], 
+                        display: ["Manrope", "sans-serif"]
+                    },
+                    screens: {
+                        'xs': '480px',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 8s linear infinite',
+                    }
+                }
+            }
+        };
+    </script>
 </head>
-<body>
-    <header class="header">
-        <div class="logo">PRB</div>
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<body class="bg-background-dark text-gray-200 font-sans transition-colors duration-300 antialiased selection:bg-cyan selection:text-black w-full overflow-x-hidden">
 
+<!-- Navigation -->
+<nav class="fixed w-full z-50 top-0 left-0 bg-background-dark/95 backdrop-blur-md border-b border-white/5 shadow-lg transition-all duration-300 h-16 sm:h-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-full flex items-center justify-between relative z-50">
+        
+        <!-- Logo -->
+        <div class="flex-shrink-0 z-50">
+            <a class="text-xl sm:text-2xl font-bold tracking-wider text-white uppercase font-display hover:text-primary transition-colors focus:outline-none focus:text-primary" href="#home">PRB</a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4 lg:space-x-8">
+                <a class="nav-link text-primary font-semibold px-3 py-2 text-sm transition-all hover:-translate-y-0.5" href="#home">Home</a>
+                <a class="nav-link text-gray-400 hover:text-primary px-3 py-2 text-sm font-medium transition-all hover:-translate-y-0.5" href="#about">About</a>
+                <a class="nav-link text-gray-400 hover:text-primary px-3 py-2 text-sm font-medium transition-all hover:-translate-y-0.5" href="#education">Education</a>
+                <a class="nav-link text-gray-400 hover:text-primary px-3 py-2 text-sm font-medium transition-all hover:-translate-y-0.5" href="#skills">Skills</a>
+                <a class="nav-link text-gray-400 hover:text-primary px-3 py-2 text-sm font-medium transition-all hover:-translate-y-0.5" href="#projects">Projects</a>
+                <a class="nav-link text-gray-400 hover:text-primary px-3 py-2 text-sm font-medium transition-all hover:-translate-y-0.5" href="#contact">Contact</a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex md:hidden z-50">
+            <button id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-surface-dark border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-10 h-10" type="button" aria-label="Toggle Menu">
+                <i class="fas fa-bars text-xl transition-transform duration-300" id="menu-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay (Backdrop) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 hidden opacity-0 transition-opacity duration-300 md:hidden"></div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="absolute w-full left-0 top-16 sm:top-20 bg-surface-dark border-b border-white/10 shadow-2xl origin-top transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out -z-10 md:hidden pointer-events-none">
+        <div class="px-6 py-6 space-y-3 max-h-[80vh] overflow-y-auto">
+            <a class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-primary/10 hover:text-primary transition-colors border border-transparent hover:border-primary/20" href="#home">Home</a>
+            <a class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors border border-transparent hover:border-primary/20" href="#about">About</a>
+            <a class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors border border-transparent hover:border-primary/20" href="#education">Education</a>
+            <a class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors border border-transparent hover:border-primary/20" href="#skills">Skills</a>
+            <a class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors border border-transparent hover:border-primary/20" href="#projects">Projects</a>
+            <a class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors border border-transparent hover:border-primary/20" href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Home Section -->
+<section class="min-h-screen flex items-center pt-28 pb-12 relative overflow-hidden" id="home">
+    <!-- Background Blurs -->
+    <div class="absolute top-20 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 rounded-full bg-primary/20 blur-[60px] md:blur-[100px] -z-10 animate-pulse-slow"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full bg-cyan/10 blur-[60px] md:blur-[100px] -z-10 animate-pulse-slow delay-1000"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             
-        </nav>
-    </header>
+            <div class="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left reveal-left">
+                <h2 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-400 mb-2 pl-0">Hello It's Me</h2>
+                
+                <!-- UPDATED H1: Added whitespace-nowrap and adjusted sizes -->
+                <h1 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight font-display mb-4 whitespace-nowrap">
+                    Pragyan Rajbhandari
+                </h1>
+                
+                <div class="text-xl sm:text-2xl md:text-3xl font-semibold flex flex-wrap justify-center lg:justify-start items-center gap-2 mb-6 pl-0 min-h-[3rem]">
+                    <span class="text-gray-300">And I'm a</span>
+                    <span id="typing-text" class="text-primary font-bold typing-text"></span>
+                </div>
+                
+                <p class="text-gray-400 max-w-lg leading-relaxed mb-8 text-sm sm:text-base px-2 lg:px-1 mx-auto lg:mx-0">
+                    I am a passionate web developer and AI enthusiast, focused on crafting modern, responsive websites and delving into the world of artificial intelligence. I thrive on turning ideas into elegant code and creating projects that make a meaningful impact.
+                </p>
+                
+                <div class="flex space-x-4 mb-8 pl-1">
+                    <a class="social-icon-btn" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a class="social-icon-btn" href="https://www.linkedin.com/in/pragyanrajbhandari/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="social-icon-btn" href="https://github.com/pragyanrajbhandari" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a class="social-icon-btn" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pl-1">
+                    <a class="px-8 py-3 bg-primary text-white font-semibold rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:bg-blue-600 transition-all transform hover:-translate-y-1 text-sm sm:text-base" href="#projects">
+                        View Work
+                    </a>
+                    <a class="px-8 py-3 bg-[#00FFD9] text-slate-900 font-bold rounded-full shadow-[0_0_15px_rgba(0,255,217,0.4)] transition-all transform hover:-translate-y-1 hover:bg-[#00e6c3] text-sm sm:text-base" href="#">
+                        Download CV
+                    </a>
+                </div>
+            </div>
+
+            <div class="order-1 lg:order-2 flex justify-center lg:justify-end relative reveal-right">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px]">
+                    <div class="absolute inset-0 rounded-full border-2 border-primary/30 shadow-[0_0_50px_rgba(59,130,246,0.2)] animate-pulse-slow"></div>
+                    <div class="absolute inset-4 rounded-full overflow-hidden border-4 border-surface-dark bg-surface-dark flex items-end justify-center shadow-2xl">
+                        <img alt="Pragyan Rajbhandari" class="w-full h-full object-cover" src="images/portfilio.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="py-16 md:py-24 bg-surface-dark/30 w-full" id="about">
+    <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/3 flex justify-center reveal-scale">
+                <div class="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full p-2 bg-gradient-to-tr from-primary to-cyan shadow-xl">
+                    <div class="w-full h-full rounded-full overflow-hidden bg-surface-dark border-4 border-surface-dark">
+                        <img alt="About Profile" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="images/portfilio.png"/>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-2/3 space-y-6 text-center md:text-left reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2">About ME</h2>
+                <p class="text-gray-400 leading-relaxed text-sm sm:text-base md:text-lg">
+                    I am a web developer and designer eager to learn new technologies and improve my skills. Currently, I’m focused on building clean, efficient web solutions and working on small projects to deepen my understanding. I’m also learning Canva and Figma, and I’m passionate about creating clean, simple solutions while continuously growing in both the creative and tech fields.
+                </p>
+                <div class="pt-4">
+                    <a class="inline-block px-8 py-3 bg-surface-dark hover:bg-primary text-white font-medium rounded-lg transition-colors duration-300 border border-primary/50 hover:border-primary shadow-lg text-sm sm:text-base" href="#projects">
+                        See more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section class="py-16 md:py-24 bg-background-dark relative w-full overflow-hidden" id="education">
+    <!-- Blur Element -->
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto w-full px-4 sm:px-8 lg:px-12 relative z-10">
+        <div class="text-center mb-16 reveal-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-white font-sans">
+                My <span class="text-primary">Education</span>
+            </h2>
+        </div>
+
+        <!-- Responsive Timeline Container -->
+        <!-- Added ml-4 sm:ml-6 md:ml-10 to center better on small screens -->
+        <div class="space-y-10 border-l-2 border-white/10 ml-4 sm:ml-6 md:ml-10 pl-6 sm:pl-8 md:pl-10 relative">
+            
+            <!-- Item 1 -->
+            <div class="relative reveal-left w-full">
+                <!-- Dot centered on line: Adjusted left position based on padding -->
+                <!-- padding-left is 1.5rem (24px) to 2.5rem (40px). Border width 2px. Half dot width 10px. -->
+                <!-- Calculation: -1.5rem (pl-6) - 1px (border) - 10px (dot radius) approx -->
+                <div class="absolute -left-[35px] sm:-left-[43px] md:-left-[51px] top-6 w-5 h-5 rounded-full bg-primary border-4 border-background-dark shadow-[0_0_20px_rgba(59,130,246,0.8)] z-10"></div>
+                
+                <div class="group bg-surface-dark/60 backdrop-blur-sm border border-white/10 rounded-2xl p-5 md:p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg w-full">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+                        <h4 class="text-lg md:text-xl font-bold text-white group-hover:text-primary transition-colors font-sans">Bachelor of Information Management (BIM)</h4>
+                        <span class="text-cyan text-xs font-bold bg-cyan/10 px-3 py-1 rounded-full border border-cyan/20 font-sans whitespace-nowrap self-start sm:self-auto">2024 – Present</span>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="text-gray-300 text-sm md:text-base font-medium font-sans">Tribhuvan University, Kathmandu, Nepal</p>
+                        <p class="text-gray-300 text-sm md:text-base font-medium font-sans">Himalaya Darshan College, Biratnagar, Nepal</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="relative reveal-left delay-100 w-full">
+                <div class="absolute -left-[35px] sm:-left-[43px] md:-left-[51px] top-6 w-5 h-5 rounded-full bg-surface-dark border-4 border-gray-700 z-10"></div>
+                <div  class="group bg-surface-dark/60 backdrop-blur-sm border border-white/10 rounded-2xl p-5 md:p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg w-full">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+                        <h4 class="text-lg md:text-xl font-bold text-gray-200 group-hover:text-white transition-colors font-sans">+2 Management</h4>
+                        <span class="text-gray-400 text-xs font-bold bg-white/5 px-3 py-1 rounded-full border border-white/10 font-sans whitespace-nowrap self-start sm:self-auto">2022 – 2024</span>
+                    </div>
+                    <p class="text-gray-300 text-sm md:text-base font-medium font-sans">St. Joseph's Higher Secondary School, Biratnagar, Nepal</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="relative reveal-left delay-200 w-full">
+                <div class="absolute -left-[35px] sm:-left-[43px] md:-left-[51px] top-6 w-5 h-5 rounded-full bg-surface-dark border-4 border-gray-700 z-10"></div>
+                <div  class="group bg-surface-dark/60 backdrop-blur-sm border border-white/10 rounded-2xl p-5 md:p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg w-full">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+                        <h4 class="text-lg md:text-xl font-bold text-gray-200 group-hover:text-white transition-colors font-sans">School Leaving Certificate (SEE)</h4>
+                        <span class="text-gray-400 text-xs font-bold bg-white/5 px-3 py-1 rounded-full border border-white/10 font-sans whitespace-nowrap self-start sm:self-auto">Completed 2022</span>
+                    </div>
+                    <p class="text-gray-300 text-sm md:text-base font-medium font-sans">St. Joseph's Higher Secondary School, Biratnagar, Nepal</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="py-16 md:py-24 bg-surface-dark/30 w-full" id="skills">
+    <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div class="text-center mb-16 reveal-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-white font-sans">
+                My <span class="text-primary">Skills</span>
+            </h2>
+        </div>
+
+        <div class="space-y-16">
+            <!-- Programming -->
+            <div class="reveal-up">
+                <div class="w-full border-b border-gray-700 mb-8 pb-4">
+                    <h3 class="text-xl font-bold text-white flex items-center font-sans">
+                        <i class="fas fa-code text-primary mr-3"></i> Programming
+                    </h3>
+                </div>
+                <div class="grid grid-cols-2 xs:grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- HTML -->
+                    <div class="skill-card group">
+                        <div class="w-16 h-16 bg-surface-dark rounded-lg flex items-center justify-center mb-3 group-hover:-translate-y-2 transition-transform duration-300 border border-gray-700 group-hover:border-orange-500 shadow-lg relative overflow-hidden">
+                            <i class="fab fa-html5 text-4xl text-orange-500"></i>
+                        </div>
+                        <span class="text-gray-300 font-medium group-hover:text-orange-500 font-sans text-center">HTML</span>
+                    </div>
+                    <!-- CSS -->
+                    <div class="skill-card group">
+                        <div class="w-16 h-16 bg-surface-dark rounded-lg flex items-center justify-center mb-3 group-hover:-translate-y-2 transition-transform duration-300 border border-gray-700 group-hover:border-blue-500 shadow-lg relative overflow-hidden">
+                            <i class="fab fa-css3-alt text-4xl text-blue-500"></i>
+                        </div>
+                        <span class="text-gray-300 font-medium group-hover:text-blue-500 font-sans text-center">CSS</span>
+                    </div>
+                    <!-- JS -->
+                    <div class="skill-card group">
+                        <div class="w-16 h-16 bg-surface-dark rounded-lg flex items-center justify-center mb-3 group-hover:-translate-y-2 transition-transform duration-300 border border-gray-700 group-hover:border-yellow-400 shadow-lg relative overflow-hidden">
+                            <i class="fab fa-js text-4xl text-yellow-400"></i>
+                        </div>
+                        <span class="text-gray-300 font-medium group-hover:text-yellow-400 font-sans text-center">JavaScript</span>
+                    </div>
+                    <!-- C -->
+                    <div class="skill-card group">
+                        <div class="w-16 h-16 bg-surface-dark rounded-lg flex items-center justify-center mb-3 group-hover:-translate-y-2 transition-transform duration-300 border border-gray-700 group-hover:border-blue-700 shadow-lg relative overflow-hidden">
+                            <span class="text-3xl font-bold text-blue-700">C</span>
+                        </div>
+                        <span class="text-gray-300 font-medium group-hover:text-blue-700 font-sans text-center">C Language</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="reveal-up">
+                <div class="w-full border-b border-gray-700 mb-8 pb-4">
+                    <h3 class="text-xl font-bold text-white flex items-center font-sans">
+                        <i class="fas fa-pencil-ruler text-primary mr-3"></i> Tools
+                    </h3>
+                </div>
+                <div class="grid grid-cols-2 xs:grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="skill-card group">
+                        <div class="w-16 h-16 bg-surface-dark rounded-lg flex items-center justify-center mb-3 group-hover:-translate-y-2 transition-all duration-300 border border-gray-700 group-hover:border-[#00C4CC] shadow-lg relative overflow-hidden">
+                            <div class="absolute inset-0 bg-[#00C4CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-[#00C4CC] to-purple-500 flex items-center justify-center font-bold text-white text-xs z-10">Canva</div>
+                        </div>
+                        <span class="text-gray-300 font-medium group-hover:text-[#00C4CC] transition-colors font-sans text-center">Canva</span>
+                    </div>
+                    <div class="skill-card group">
+                        <div class="w-16 h-16 bg-surface-dark rounded-lg flex items-center justify-center mb-3 group-hover:-translate-y-2 transition-transform duration-300 border border-gray-700 group-hover:border-[#F1502F] shadow-lg relative overflow-hidden">
+                            <i class="fab fa-git-alt text-4xl text-[#F1502F]"></i>
+                        </div>
+                        <span class="text-gray-300 font-medium group-hover:text-[#F1502F] font-sans text-center">Git</span>
+                    </div>
+                    <div class="skill-card group">
+                        <div class="w-16 h-16 bg-surface-dark rounded-lg flex items-center justify-center mb-3 group-hover:-translate-y-2 transition-transform duration-300 border border-gray-700 group-hover:border-white shadow-lg relative overflow-hidden">
+                            <i class="fab fa-github text-4xl text-white"></i>
+                        </div>
+                        <span class="text-gray-300 font-medium group-hover:text-white font-sans text-center">GitHub</span>
+                    </div>
+                    <div class="skill-card group">
+                        <div class="w-16 h-16 bg-surface-dark rounded-lg flex items-center justify-center mb-3 group-hover:-translate-y-2 transition-transform duration-300 border border-gray-700 group-hover:border-pink-500 shadow-lg relative overflow-hidden">
+                            <i class="fab fa-figma text-4xl text-pink-500"></i>
+                        </div>
+                        <span class="text-gray-300 font-medium group-hover:text-pink-500 font-sans text-center">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="py-16 md:py-24 relative w-full" id="projects">
+    <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+        <div class="text-center mb-16 reveal-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-white">
+                My <span class="text-primary">Projects</span>
+            </h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+            <!-- Project 1 -->
+            <div class="group relative bg-surface-dark rounded-xl overflow-hidden shadow-xl border border-gray-800 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 reveal-scale">
+                <div class="aspect-video bg-black relative overflow-hidden">
+                    <img alt="Portfolio Website" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-105" src="images/project portfilio.png"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent flex flex-col justify-end p-6 translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <h3 class="text-xl font-bold text-white mb-1">Portfolio Website</h3>
+                        <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">Design & Development</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 (Coming Soon) -->
+            <div class="bg-surface-dark rounded-xl overflow-hidden shadow-xl border border-gray-800 flex items-center justify-center min-h-[250px] md:min-h-[300px] relative reveal-scale delay-100">
+                <div class="absolute inset-0 bg-gradient-to-br from-surface-dark to-black"></div>
+                <div class="relative text-center z-10 p-6">
+                    <div class="w-16 h-16 border-t-4 border-primary border-solid rounded-full animate-spin-slow mx-auto mb-4 opacity-70"></div>
+                    <h3 class="text-xl font-bold text-white tracking-widest uppercase opacity-70">Coming Soon</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-16 md:py-24 bg-surface-dark/30 w-full" id="contact">
+    <div class="max-w-3xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div class="text-center mb-12 reveal-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-white">
+                Contact <span class="text-primary">ME !</span>
+            </h2>
+        </div>
+        
+        <form id="contact-form" class="space-y-6 reveal-up" novalidate>
+            <!-- Hidden Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="ede39271-a78f-46c5-878b-b5f1a53ab476">
+            
+            <!-- Optional: Subject field for the email you receive -->
+            <input type="hidden" name="subject" value="New Submission from Portfolio">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="relative group">
+                    <input id="first-name" name="first_name" class="w-full bg-surface-dark border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="First Name*" type="text"/>
+                </div>
+                <div class="relative group">
+                    <input id="last-name" name="last_name" class="w-full bg-surface-dark border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Last Name*" type="text"/>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="relative group">
+                    <input id="mobile" name="phone" class="w-full bg-surface-dark border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Mobile Number" type="tel"/>
+                </div>
+                <div class="relative group">
+                    <input id="email" name="email" class="w-full bg-surface-dark border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Email Address (@gmail.com)*" type="email"/>
+                </div>
+            </div>
+            <div class="relative group">
+                <textarea id="message" name="message" class="w-full bg-surface-dark border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none" placeholder="Your Message*" rows="6"></textarea>
+            </div>
+            <button class="w-full py-4 bg-primary text-white font-bold rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:-translate-y-1 hover:shadow-primary/40 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed" type="submit">
+                Send Message
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-surface-dark border-t border-gray-800 pt-16 pb-8 w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-16">
+            
+            <div class="col-span-1 sm:col-span-2 lg:col-span-3 space-y-6">
+                <a class="text-3xl font-bold tracking-wider text-white uppercase block font-display " href="#">PRB</a>
+                <p class="text-gray-400 leading-relaxed text-sm sm:text-base font-sans pr-4 max-w-sm">
+                    Building digital experiences with passion and precision.
+                </p>
+            </div>
+
+            <div class="col-span-1 lg:col-span-2">
+                <h4 class="text-white font-bold mb-6 text-xl font-sans">Quick Links</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a class="hover:text-primary transition-colors hover:pl-2 duration-300 text-sm sm:text-base font-sans block" href="#home">Home</a></li>
+                    <li><a class="hover:text-primary transition-colors hover:pl-2 duration-300 text-sm sm:text-base font-sans block" href="#about">About</a></li>
+                    <li><a class="hover:text-primary transition-colors hover:pl-2 duration-300 text-sm sm:text-base font-sans block" href="#education">Education</a></li>
+                    <li><a class="hover:text-primary transition-colors hover:pl-2 duration-300 text-sm sm:text-base font-sans block" href="#skills">Skills</a></li>
+                    <li><a class="hover:text-primary transition-colors hover:pl-2 duration-300 text-sm sm:text-base font-sans block" href="#projects">Projects</a></li>
+                </ul>
+            </div>
+
+            <div class="col-span-1 lg:col-span-4">
+                <h4 class="text-white font-bold mb-6 text-xl font-sans">Contact Info</h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li class="flex items-start">
+                        <div class="w-6 flex justify-center mr-3 mt-0">
+                            <i class="fas fa-envelope text-primary text-lg"></i>
+                        </div>
+                        <span class="text-sm sm:text-base font-sans break-all">pragyanrajbhandari2007@gmail.com</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-6 flex justify-center mr-3 mt-0">
+                            <i class="fas fa-map-marker-alt text-primary text-lg"></i>
+                        </div>
+                        <span class="text-sm sm:text-base font-sans">Biratnagar-5, Nepal</span>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            <div class="col-span-1 sm:col-span-2 lg:col-span-2">
+                <h4 class="text-white font-bold mb-6 text-xl font-sans">Follow Me</h4>
+                <div class="flex space-x-3">
+                    <a class="w-10 h-10 shrink-0 rounded-full border border-gray-700 bg-gray-800 text-gray-400 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-md group" href="#" aria-label="Facebook">
+                        <i class="fab fa-facebook-f text-lg group-hover:text-white transition-colors"></i>
+                    </a>
+                    <a class="w-10 h-10 shrink-0 rounded-full border border-gray-700 bg-gray-800 text-gray-400 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-md group" href="https://www.linkedin.com/in/pragyanrajbhandari/" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in text-lg group-hover:text-white transition-colors"></i>
+                    </a>
+                    <a class="w-10 h-10 shrink-0 rounded-full border border-gray-700 bg-gray-800 text-gray-400 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-md group" href="https://github.com/pragyanrajbhandari" aria-label="GitHub">
+                        <i class="fab fa-github text-lg group-hover:text-white transition-colors"></i>
+                    </a>
+                    <a class="w-10 h-10 shrink-0 rounded-full border border-gray-700 bg-gray-800 text-gray-400 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-md group" href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram text-lg group-hover:text-white transition-colors"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-700 pt-8 text-center text-gray-500">
+            <p class="text-sm sm:text-base font-sans">© 2026 <span class="text-primary font-semibold">Pragyan Rajbhandari</span>. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
