@@ -1,12 +1,12 @@
-#🌐 Personal Portfolio Website
+🌐 Personal Portfolio Website
 
 Welcome to my personal portfolio website — a place where I showcase who I am, what I’m learning, and the projects I’ve built as a web developer.This website reflects my growth, skills, and journey in web development, and makes it easy to explore my work and get in touch.
 --
-##🚀 Live Preview
+🚀 Live Preview
 
 🔗 View my portfolio here:
 https://www.pragyanrajbhandari.com.np
---
+
 ##🧠 About the Website
 
 This portfolio is designed to be:
@@ -24,7 +24,7 @@ This portfolio is designed to be:
 -Tailwind CSS
 -Git & GitHub
 ---
-##📸 Features
+📸 Features
 
 ✔️ Responsive layout
 ✔️ Modern UI with Tailwind CSS
@@ -33,7 +33,7 @@ This portfolio is designed to be:
 ✔️ Contact section
 ✔️ Clean and readable code structure
 --
-##📂 Project Structure
+📂 Project Structure
 
 📁 portfolio/
 ├─ 📄 index.html
@@ -42,23 +42,23 @@ This portfolio is designed to be:
 ├─ 📁 js/            (JavaScript files)
 └─ 📄 README.md
 
-##✨ Upcoming Improvements
+✨ Upcoming Improvements
 
 🔹 Add more projects
 🔹 Improve animations and UI polish
 🔹 Enhance accessibility
 🔹 Backend support for contact form
 
-##📬 Contact Me
+📬 Contact Me
 
 You can reach me through the contact section on my website.
 I’m always open to feedback, collaboration, and learning opportunities.
 
-##📜 License
+📜 License
 
 © 2025 Pragyan Rajbhandari
 
-##⭐ Acknowledgements
+⭐ Acknowledgements
 
 Thanks for visiting my portfolio.
 If you have suggestions or feedback, I’d love to hear them.
