@@ -1,13 +1,17 @@
-🌐 Personal Portfolio Website
+# 🌐 Personal Portfolio Website
 
 Welcome to my personal portfolio website — a place where I showcase who I am, what I’m learning, and the projects I’ve built as a web developer.This website reflects my growth, skills, and journey in web development, and makes it easy to explore my work and get in touch.
---
-🚀 Live Preview
+-----
 
-🔗 View my portfolio here:
-https://www.pragyanrajbhandari.com.np
 
-🧠 About the Website
+## 🚀 Live Preview
+
+  🔗 View my portfolio here:
+  https://www.pragyanrajbhandari.com.np
+-------
+
+
+## 🧠 About the Website
 
 This portfolio is designed to be:
 
@@ -16,7 +20,10 @@ This portfolio is designed to be:
 ⚡ Fast and lightweight
 🎯 Focused on real projects and learning progress
 --
-🛠️ Tech Stack
+
+
+
+## 🛠️ Tech Stack
 
 -HTML5
 -CSS3
@@ -24,7 +31,9 @@ This portfolio is designed to be:
 -Tailwind CSS
 -Git & GitHub
 ---
-📸 Features
+
+
+## 📸 Features
 ✔️ Responsive layout
 ✔️ Modern UI with Tailwind CSS
 ✔️ Projects showcase
