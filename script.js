@@ -11,7 +11,7 @@ function initTypingEffect() {
     const target = document.getElementById('typing-text');
     if (!target) return;
     
-    const words = ["UX/UI Designer", "Full Stack Developer"];
+    const words = ["UX/UI Designer"];
     let wordIndex = 0, charIndex = 0, isDeleting = false;
 
     function type() {
